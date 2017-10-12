@@ -3,15 +3,45 @@
 <?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXTextArea?>
 <?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.SampleController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.SampleController">
    <children>
-      <JFXButton fx:id="btnExcel" layoutX="51.0" layoutY="53.0" prefHeight="25.0" prefWidth="125.0" text="EXCEL" />
-      <JFXButton fx:id="btnWord" layoutX="226.0" layoutY="53.0" prefHeight="25.0" prefWidth="125.0" text="WORD" />
-      <JFXButton fx:id="btnPower" layoutX="408.0" layoutY="53.0" prefHeight="25.0" prefWidth="125.0" text="POWER POINT" />
+      <JFXButton fx:id="btnExcel" layoutX="47.0" layoutY="56.0" onMouseClicked="#excel" prefHeight="35.0" prefWidth="115.0" ripplerFill="BLUE" text="EXCEL">
+         <graphic>
+            <ImageView fitHeight="29.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../Icons/icons8_Microsoft_Excel_48px.png" />
+               </image>
+            </ImageView>
+         </graphic></JFXButton>
+      <JFXButton fx:id="btnWord" layoutX="226.0" layoutY="53.0" onMouseClicked="#word" prefHeight="25.0" prefWidth="125.0" ripplerFill="BLUE" text="WORD">
+         <graphic>
+            <ImageView fitHeight="27.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../Icons/icons8_Microsoft_Word_48px.png" />
+               </image>
+            </ImageView>
+         </graphic></JFXButton>
+      <JFXButton fx:id="btnPower" layoutX="401.0" layoutY="53.0" onMouseClicked="#Power" prefHeight="40.0" prefWidth="132.0" ripplerFill="BLUE" text="POWER POINT">
+         <graphic>
+            <ImageView fitHeight="26.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../Icons/icons8_Microsoft_PowerPoint_48px.png" />
+               </image>
+            </ImageView>
+         </graphic></JFXButton>
       <JFXTextField fx:id="textNavegar" layoutX="51.0" layoutY="127.0" prefHeight="25.0" prefWidth="324.0" text="http://www." />
-      <JFXTextArea fx:id="textArea" layoutX="51.0" layoutY="171.0" />
-      <JFXButton fx:id="btnNavegar" layoutX="424.0" layoutY="127.0" prefHeight="25.0" prefWidth="125.0" text="NAVEGAR" />
+      <JFXButton fx:id="btnNavegar" layoutX="405.0" layoutY="120.0" onMouseClicked="#navegar" prefHeight="25.0" prefWidth="125.0" ripplerFill="BLUE" text="NAVEGAR">
+         <graphic>
+            <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../Icons/icons8_Website_48px.png" />
+               </image>
+            </ImageView>
+         </graphic></JFXButton>
+      <JFXTextArea fx:id="textArea" editable="false" layoutX="51.0" layoutY="171.0" prefHeight="175.0" prefWidth="476.0" />
    </children>
 </AnchorPane>

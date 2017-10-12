@@ -4,6 +4,7 @@ package application;
 	import com.jfoenix.controls.JFXTextArea;
 	import com.jfoenix.controls.JFXTextField;
 	import javafx.fxml.FXML;
+import javafx.scene.input.MouseEvent;
 
 	public class SampleController {
 
@@ -24,5 +25,26 @@ package application;
 
 	    @FXML
 	    private JFXButton btnNavegar;
+	    
+	    @FXML
+	    void excel(MouseEvent event) {
+	    	
+	    }
+	    
+	    @FXML
+	    void word(MouseEvent event) {
+	    	
+	    }
+	    
+	    @FXML
+	    void Power(MouseEvent event) {
+	    	
+	    }
+	    
+	    @FXML
+	    void navegar(MouseEvent event) {
+	    	
+	    }
+
 
 }
