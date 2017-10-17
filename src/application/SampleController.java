@@ -7,12 +7,14 @@ import com.jfoenix.controls.*;
 
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableColumn.CellDataFeatures;
 import javafx.scene.control.TableView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.web.WebEngine;
@@ -88,48 +90,42 @@ import javafx.scene.web.WebView;
 				e.printStackTrace();
 			}
 	    	escribirUrls();
-	    	leerUrls();
-	    	
-		  
 
 	    }
 	    
-		private void leerUrls() {
-			
-			for (int i = 0; i< main.getArrayUrls().size(); i++) {
-				textArea.setText(textArea.getText() + "\n" + main.getArrayUrls().get(i));	
-			}
-			for (int i = 0; i< main.getArrayUrls().size(); i++) {
-			
-			}
-		  
-		}
-		
 		 @FXML
 	    private void initialize() {
 	        // Initialize the table with the one column.
 			 colum.setCellValueFactory(
 	                cellData -> cellData.getValue());
 
-	        //TODO: visualizar la web selecionada
-
 	        // Listen for selection changes and show the person details when changed.
-	        /*tablaWeb.getSelectionModel().selectedItemProperty().addListener(
-	                (observable, oldValue, newValue) -> visualizrUrl(newValue));*/
-	    }
+			 tablaWeb.getSelectionModel().selectedItemProperty().addListener(
+                (observable, oldValue, newValue) -> {
+					try {
+						Runtime.getRuntime().exec("rundll32 url.dll,FileProtocolHandler " + (newValue.get()));
+					} catch (IOException e) {
+						e.printStackTrace();
+					}
+				});						
+    	} 
 
-		private void escribirUrls() {	    	  
+		private void escribirUrls() {
+			boolean esta = false;
 	    	  try { 
 				bw = new BufferedWriter(new FileWriter(nombre,true));
 				for (int i = 0; i < main.getArrayUrls().size(); i++) {
-					if(!main.getArrayUrls().contains(textNavegar.getText())){
-						bw.write(textNavegar.getText());
-						bw.newLine();
-						main.getArrayUrls().add(new SimpleStringProperty(textNavegar.getText()));
+					if (colum.getCellData(i).equals(textNavegar.getText()) ) {
+						esta = true;
 					}
 				}
+				if (!esta) {
+					bw.write(textNavegar.getText());
+					bw.newLine();
+					main.getArrayUrls().add(new SimpleStringProperty(textNavegar.getText()));
+				}					
 
-			} catch (IOException e) {
+			}catch (IOException e) {
 				e.printStackTrace();
 			}finally {
 				if (bw != null) {

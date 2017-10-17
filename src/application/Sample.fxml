@@ -45,7 +45,7 @@
          </graphic></JFXButton>
       <TableView fx:id="tablaWeb" layoutX="45.0" layoutY="180.0" prefHeight="200.0" prefWidth="483.0">
         <columns>
-          <TableColumn fx:id="colum" prefWidth="199.0" text="Webs" />
+          <TableColumn fx:id="colum" prefWidth="481.0" text="Webs" />
         </columns>
       </TableView>
    </children>

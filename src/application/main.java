@@ -58,7 +58,7 @@ public class main extends Application {
 			
 			StringProperty linea = null;
 			while((linea = new SimpleStringProperty(br.readLine())).getValue() !=  null){
-				arrayUrls.add(linea);	
+				arrayUrls.add(linea);
 		      }
 		} catch (FileNotFoundException e) {
 			System.out.println("Fichero no ha sido encontrado");
@@ -80,6 +80,10 @@ public class main extends Application {
 	
 	public ObservableList<StringProperty> getArrayUrls() {
 		return arrayUrls;
+	}
+	
+	public void setArrayUrls(ObservableList<StringProperty> arrayUrls) {
+		this.arrayUrls = arrayUrls;
 	}
 
 
